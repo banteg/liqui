@@ -12,7 +12,7 @@ class LiquiApiError(Exception):
 
 class Liqui:
 
-    def __init__(self, key, secret):
+    def __init__(self, key=None, secret=None):
         self._key = key
         self._secret = secret
 
@@ -62,6 +62,8 @@ class Liqui:
         return r.json()
 
     def _tapi(self, **params):
+        if not self._key or not self._secret:
+            raise LiquiApiError('api keys not configured')
         params.update(nonce=int(time()))
         headers = {'Key': self._key, 'Sign': self._sign(params)}
         resp = requests.post('https://api.liqui.io/tapi', data=params, headers=headers)
