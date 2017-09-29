@@ -1,7 +1,6 @@
 import hmac
 import hashlib
 from time import time
-from urllib.parse import urlencode
 try:
     from urllib.parse import urlencode
 except ImportError:
