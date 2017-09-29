@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='liqui',
-    version='1.0.0',
+    version='1.0.1',
     description='liqui.io api wrapper',
     long_description=open('readme.md', 'rt').read(),
     url='https://github.com/banteg/liqui',
